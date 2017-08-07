@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div id="customVideoContainer_1">
+            <div class="videoContainer">
+                <video  class = "video_player">
+                    <source src="video/video1.mp4" type="video/mp4"></source>
+                </video>
+            </div>
+            <div id="video-controls">
+                <div class="volume-control">
+                    <div class="mute-unmute"></div>
+                </div>
+                <div class="volume-control-bar">
+                        <input class="volume-range" type="range" min="0" max="100" step="1" value="0"/>
+                    </div>
+                <div class="seek-container">
+                    <div class="seek-bar"></div>
+                </div>
+                <div class="play-pause"></div>
+                <div class="replay hideElm"></div>
+                </div>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
+</html>
