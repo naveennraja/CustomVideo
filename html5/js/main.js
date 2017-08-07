@@ -5,11 +5,11 @@ var initiate = (function(_root)
 
 	videoElements =
 	{
-	    container : "#customVideoContainer_1", // Video Container Name
+	    container : "#customVideoContainer", // Video Container Name
 		video: ".video_player", // HTML5 Video
-		muteBtn: ".mute-unmute" , // Mute/Unmute Button
-		playBtn: ".play-pause",
-		replayBtn : ".replay", // Play/Pause Button
+		muteBtn: ".mute-unmute" , // Mute/Unmute button.
+		playBtn: ".play-pause", // Play/Pause button.
+		replayBtn : ".replay", // Play video from beginning.
 		seekContainer: ".seek-container", //Name of seek  container
 		seekBar : ".seek-bar", //Name of the seek bar style it in css.
 		volumeSlider : ".volume-range" , //Name of the seek bar style it in css.
@@ -66,10 +66,9 @@ var initiate = (function(_root)
                 // VideoEnded button
                 function videoEnded()
                 {
-                     vq_0 = vq_25 = vq_50 = vq_50 = vq_100 = false;
-                      self.addClass(videoElements.playBtn,"paused");
-                      self.removeClass(videoElements.playBtn,"playing");
-                      self.addClass(videoElements.replayBtn,"showElm");
+                     self.addClass(videoElements.playBtn,"paused");
+                     self.removeClass(videoElements.playBtn,"playing");
+                     self.addClass(videoElements.replayBtn,"showElm");
                 }
                 // Play button
                 function playStateHandler()
@@ -92,11 +91,15 @@ var initiate = (function(_root)
                     if(elm.video.muted)
                     {
                        self.addClass(this,"unmuted"); self.removeClass(this,"muted");
+                       elm.volumeSlider.value = 100;
+                       elm.video.volume =1;
                        elm.video.muted = false;
                     }
                     else
                     {
                         self.addClass(this,"muted"); self.removeClass(this,"unmuted");
+                        elm.volumeSlider.value = 0;
+                        elm.video.volume =0;
                         elm.video.muted = true;
                     }
                 }
@@ -128,6 +131,8 @@ var initiate = (function(_root)
                 {
                     self.removeClass(this,"showElm");self.addClass(this,"hideElm");
                     self.addClass(videoElements.playBtn,"playing"); self.removeClass(videoElements.playBtn,"paused");
+                    console.dir(elm.video);
+                    elm.video.currentTime = 0;
                     elm.video.play();
                 }
             },
@@ -182,5 +187,4 @@ var initiate = (function(_root)
             }
     }).apply(videoElements);
     return videoElements.init;
-}(window));
-initiate();
+}(window))();
