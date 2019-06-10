@@ -13,8 +13,8 @@ var initiate = (function(_root)
 		seekContainer: ".seek-container", //Name of seek  container
 		seekBar : ".seek-bar", //Name of the seek bar style it in css.
 		volumeSlider : ".volume-range" , //Name of the seek bar style it in css.
-		politeAutoplay : true, //Video will be muted and autoplayed.
-		autoplay : true, // Make polite autoplay false to  change the value to false if not autoplay
+		politeAutoplay : false, //Video will be muted and autoplayed.
+		autoplay : false, // Make polite autoplay false to  change the value to false if not autoplay
 		muted : false, // Make polite autoplay false to  change the value to false if not muted
 	};
 	(function()
@@ -142,7 +142,7 @@ var initiate = (function(_root)
                 {
                     videoElements.video.setAttribute("autoplay", '');
                     videoElements.video.setAttribute("muted", true);
-                    self.addClass(videoElements.playBtn,"playing");
+                    self.addClass(videoElements.playBtn,"paused");
                     self.addClass(videoElements.muteBtn,"muted");
                 }
                 else
@@ -159,7 +159,7 @@ var initiate = (function(_root)
                     }
                     if(videoElements.muted)
                     {
-                          videoElements.volumeSlider.value = videoElements.video.volume = 0;
+                          videoElements.volumeSlider.value = videoElements.video.volume = 0.50;
                           videoElements.video.setAttribute("muted", true);
                           self.addClass(videoElements.muteBtn,"muted");
                     }
