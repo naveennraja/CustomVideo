@@ -103,6 +103,7 @@
    /*  border: 1px solid white; */
     /*required for proper track sizing in FF*/
     width: 100%;
+    cursor:pointer;
 }
 .volume-range::-webkit-slider-runnable-track
 {
