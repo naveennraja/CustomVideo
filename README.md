@@ -1,4 +1,4 @@
-# HTML5_CustomVideo
+# CustomVideo
 HTML5 Video with custom controls. Make your video controls blend with the design . Based on few changes in css and images 
 1. Polite Autoplay -> Video will autoplay with muted stated. ( This feature is not available as browsers are not allowing autoplay)
 2. Autoplay --> Toggle autoplay based on the requirement 
